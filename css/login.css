@@ -128,7 +128,7 @@ input {
 input:focus {
     outline: none;
     border-color: var(--accent-orange);
-    box-shadow: 0 0 10px rgba(234, 226, 214, 1);
+    box-shadow: 0 0 10px rgba(234, 226, 214, 0.98);
 }
 
 /* BOTÃO */
