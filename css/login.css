@@ -1,0 +1,168 @@
+/* 1. IMPORTAÇÃO DAS FONTES */
+@import url('https://fonts.cdnfonts.com/css/sansation');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+
+:root {
+    --primary-bg: #ffffff;
+    --secondary-bg: #1a222f;
+    --accent-orange: #f77f00; 
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --card-bg: #1a222f;
+}
+
+/* 2. CONFIGURAÇÃO GLOBAL (Conteúdo geral em Inter) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif; 
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 3. NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(26, 34, 47, 1);
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    font-family: "Sansation", sans-serif !important; 
+    font-size: 1.8rem;
+    font-weight: 700 !important;
+    letter-spacing: 2px;
+    color: var(--text-main);
+}
+
+.logo-pinguim {
+    height: 60px;
+    width: auto;
+}
+
+.texto-nome {
+    position: relative;
+    top: 0px;
+    font-family: "Sansation", sans-serif !important;
+}
+
+.ponto-laranja { 
+    color: var(--accent-orange) !important; 
+}
+
+/* NAVEGAÇÃO */
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 30px; }
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+nav ul li a:hover { color: var(--accent-orange); }
+
+/* 4. ÁREA DE LOGIN */
+.login-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background: radial-gradient(circle at center, #ffffff 0%, #ffffff 70%);
+}
+
+.auth-box {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(234, 226, 214, 1);
+    width: 100%;
+    max-width: 450px;
+}
+
+h2 {
+    font-family: "Sansation", sans-serif !important;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    font-weight: 700 !important;
+}
+
+/* FORMULÁRIO (Mantido em Inter) */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: var(--secondary-bg);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 10px rgba(234, 226, 214, 1);
+}
+
+/* BOTÃO */
+.btn-primary {
+    padding: 15px;
+    background: var(--accent-orange);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+}
+
+.divider {
+    height: 1px;
+    background-color: #333;
+    margin: 40px 0;
+}
+
+/* 5. FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    border-top: 1px solid #333;
+    margin-top: auto;
+}
