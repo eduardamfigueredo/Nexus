@@ -3,10 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
 
 :root {
-    --primary-bg: #ffffff;
+    --primary-bg: #eae2d6;
     --secondary-bg: #1a222f;
     --accent-orange: #f77f00; 
-    --text-main: #ffffff;
+    --text-main: #eae2d6;
     --text-dim: #a0a0a0;
     --card-bg: #1a222f;
 }
@@ -86,7 +86,7 @@ nav ul li a:hover { color: var(--accent-orange); }
     justify-content: center;
     align-items: center;
     padding: 60px 20px;
-    background: radial-gradient(circle at center, #ffffff 0%, #ffffff 70%);
+    background: radial-gradient(circle at center, #eae2d6 0%, #eae2d6 70%);
 }
 
 .auth-box {
