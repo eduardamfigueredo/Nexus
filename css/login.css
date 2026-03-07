@@ -94,7 +94,7 @@ nav ul li a:hover { color: var(--accent-orange); }
     padding: 40px;
     border-radius: 12px;
     border: 1px solid #333;
-    box-shadow: 0 10px 30px rgba(234, 226, 214, 1);
+    box-shadow: 0 10px 30px rgba(234, 226, 214, 0.98);
     width: 100%;
     max-width: 450px;
 }
