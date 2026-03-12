@@ -41,9 +41,15 @@
 
             <section class="login-section">
                 <h2 class="titulo-sansation">Login</h2>
-                <form>
-                    <input type="email" placeholder="Seu E-mail" required>
-                    <input type="password" placeholder="Sua Senha" required>
+                <form id="formLogin">
+                    <input type="email" id="emailLogin" placeholder="Seu E-mail" required>
+                    <input type="password" id="senhaLogin" placeholder="Sua Senha" required>
+        
+                    <div class="lembrar-area">
+                        <input type="checkbox" id="lembrarEmail">
+                        <label for="lembrarEmail">Lembrar meu e-mail</label>
+                    </div>
+
                     <button type="submit" class="btn-primary">Entrar</button>
                 </form>
             </section>
@@ -54,5 +60,6 @@
         <p>&copy; 2026 Nexus Tech Brasil - Conectando mentes brilhantes.</p>
     </footer>
 
+    <script src="js/login.js"></script>
 </body>
 </html>
