@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/login.css">
     <link href="https://fonts.cdnfonts.com/css/sansation" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="js/script.js"></script> 
 </head>
 <body>
 
@@ -53,6 +54,19 @@
     <footer>
         <p>&copy; 2026 Nexus Tech Brasil - Conectando mentes brilhantes.</p>
     </footer>
-
+<script>
+    const formRegistro = document.querySelector('.register-section form');
+    
+    formRegistro.addEventListener('submit', (e) => {
+  
+        const senha = formRegistro.querySelector('input[type="password"]').value;
+        
+        if (senha.length < 8) {
+            e.preventDefault(); // 
+            alert("Segurança: Sua senha deve ter pelo menos 8 caracteres.");
+        }
+        
+    });
+</script>
 </body>
 </html>
