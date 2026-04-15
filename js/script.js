@@ -1,48 +1,31 @@
-import { auth } from "./firebase.js";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut
-} from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+// ================== LOGIN SIMPLES ==================
 
+const formLogin = document.getElementById("formLogin");
 
-// ================== VERIFICA LOGIN ==================
-const pagina = window.location.pathname;
+if (formLogin) {
+    formLogin.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-onAuthStateChanged(auth, (user) => {
-    const btnEntrar = document.getElementById("btnEntrar");
+        const email = document.getElementById("emailLogin").value;
+        const senha = document.getElementById("senhaLogin").value;
 
-    if (user) {
-        console.log("Logado:", user.email);
-
-        // 🔥 Se estiver na tela de login → vai pro início
-        if (pagina.includes("login.html")) {
+        // 🔥 LOGIN FAKE (define usuário fixo)
+        if (email === "admin@email.com" && senha === "12345678") {
+            localStorage.setItem("usuario", email);
             window.location.href = "index.html";
+        } else {
+            alert("Email ou senha inválidos");
         }
-
-        // 🔥 Troca botão "Entrar" por perfil
-        if (btnEntrar) {
-            btnEntrar.innerHTML = `
-                <span>${user.email}</span>
-                <button onclick="logout()">Sair</button>
-            `;
-        }
-
-    } else {
-        // 🔒 Se não estiver logado e não estiver na tela de login
-        if (!pagina.includes("login.html")) {
-            window.location.href = "login.html";
-        }
-    }
-});
+    });
+}
 
 
-// ================== CADASTRO ==================
+// ================== CADASTRO SIMPLES ==================
+
 const formRegistro = document.getElementById("formRegistro");
 
 if (formRegistro) {
-    formRegistro.addEventListener("submit", async (e) => {
+    formRegistro.addEventListener("submit", (e) => {
         e.preventDefault();
 
         const email = document.getElementById("emailRegistro").value;
@@ -53,39 +36,46 @@ if (formRegistro) {
             return;
         }
 
-        try {
-            await createUserWithEmailAndPassword(auth, email, senha);
-            alert("Cadastro realizado com sucesso!");
-        } catch (error) {
-            alert("Erro: " + error.message);
-        }
+        // 🔥 salva no navegador
+        localStorage.setItem("usuario", email);
+        localStorage.setItem("senha", senha);
+
+        alert("Cadastro realizado!");
     });
 }
 
 
-// ================== LOGIN ==================
-const formLogin = document.getElementById("formLogin");
+// ================== VERIFICA LOGIN ==================
 
-if (formLogin) {
-    formLogin.addEventListener("submit", async (e) => {
-        e.preventDefault();
+const usuario = localStorage.getItem("usuario");
+const pagina = window.location.pathname;
+const btnEntrar = document.getElementById("btnEntrar");
 
-        const email = document.getElementById("emailLogin").value;
-        const senha = document.getElementById("senhaLogin").value;
+if (usuario) {
+    // 🔥 se estiver logado e estiver no login → vai pro index
+    if (pagina.includes("login.html")) {
+        window.location.href = "index.html";
+    }
 
-        try {
-            await signInWithEmailAndPassword(auth, email, senha);
-            window.location.href = "index.html";
-        } catch (error) {
-            alert("Erro: " + error.message);
-        }
-    });
+    // 🔥 mostra perfil
+    if (btnEntrar) {
+        btnEntrar.innerHTML = `
+            <span>${usuario}</span>
+            <button onclick="logout()">Sair</button>
+        `;
+    }
+
+} else {
+    // 🔒 bloqueia acesso ao index
+    if (!pagina.includes("login.html")) {
+        window.location.href = "login.html";
+    }
 }
 
 
 // ================== LOGOUT ==================
+
 window.logout = function () {
-    signOut(auth).then(() => {
-        window.location.href = "login.html";
-    });
+    localStorage.removeItem("usuario");
+    window.location.href = "login.html";
 };

@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexus | Eventos de Tecnologia</title>
+
     <link rel="stylesheet" href="css/index.css">
 
-    <!-- 🔥 IMPORTANTE -->
-    <script type="module" src="js/script.js"></script>
+    <!-- 🔥 AGORA SEM MODULE -->
+    <script src="js/script.js"></script>
 </head>
+
 <body>
 
 <header class="navbar">
     <div class="logo">
-        <span>NEXUS.</span>
+        <img src="imagem/pinguim.png" class="logo-pinguim">
+        <span class="texto-nome">NEXUS<span class="ponto-laranja">.</span></span>
     </div>
 
     <nav>
@@ -30,7 +33,37 @@
     </nav>
 </header>
 
-<h1>Bem-vindo ao Nexus 🚀</h1>
+<section class="hero">
+    <h1>Conecte-se ao Futuro da <span>Tecnologia Acadêmica</span></h1>
+    <p>A maior plataforma de eventos do Brasil.</p>
+</section>
+
+<footer>
+    <p>&copy; 2026 Nexus Tech Brasil</p>
+</footer>
+
+<script>
+    // 🔎 busca simples (opcional)
+    const searchInput = document.querySelector('.search-bar input');
+    const cards = document.querySelectorAll('.event-card');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            const termo = searchInput.value.toLowerCase();
+
+            cards.forEach(card => {
+                const titulo = card.querySelector('h3').innerText.toLowerCase();
+                const desc = card.querySelector('.desc').innerText.toLowerCase();
+
+                if (titulo.includes(termo) || desc.includes(termo)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    }
+</script>
 
 </body>
 </html>
