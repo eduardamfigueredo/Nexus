@@ -38,7 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const resposta = await fetch('http://127.0.0.1:3000/registrar', {
+            // ---> A MUDANÇA ESTÁ AQUI: Novo link da nuvem <---
+            const resposta = await fetch('https://nexus-api-v4px.onrender.com/registrar', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ nome, email, senha })
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert("❌ Erro: " + dados.erro);
             }
         } catch (error) {
-            alert("❌ O servidor está desligado! Ligue com 'node server.js' no terminal.");
+            alert("❌ Erro de conexão. Verifique se o servidor no Render está ativo.");
         }
     });
 
@@ -73,7 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const senha = document.getElementById('login-senha').value;
 
         try {
-            const resposta = await fetch('http://127.0.0.1:3000/login', {
+            // ---> A MUDANÇA ESTÁ AQUI: Novo link da nuvem <---
+            const resposta = await fetch('https://nexus-api-v4px.onrender.com/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, senha })
@@ -89,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert("❌ Erro: " + dados.erro);
             }
         } catch (error) {
-            alert("❌ O servidor está desligado! Ligue com 'node server.js' no terminal.");
+            alert("❌ Erro de conexão. Verifique se o servidor no Render está ativo.");
         }
     });
 

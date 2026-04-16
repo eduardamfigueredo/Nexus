@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Conexão com o Banco de Dados (Link virá do .env)
+// Conexão com o Banco de Dados (Lendo a variável do Render ou do .env)
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("✅ Conectado ao MongoDB!"))
     .catch(err => console.error("❌ Erro ao conectar:", err));
@@ -43,4 +43,9 @@ app.post('/login', async (req, res) => {
     }
 });
 
-app.listen(3000, () => console.log("🚀 Servidor rodando em http://localhost:3000"));
+// === A MUDANÇA ESTÁ AQUI NO FINAL ===
+// O Render vai injetar a porta dele na variável process.env.PORT
+// Se estiver rodando no seu computador (sem o Render), ele usa a porta 3000
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => console.log(`🚀 Servidor rodando na porta ${PORT}`));
