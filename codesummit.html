@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codecon Summit 2026 | Nexus</title>
+    
+    <link href="https://fonts.cdnfonts.com/css/sansation" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/codesummit.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <img src="imagem/pinguim.png" alt="logo">
+            <span class="texto-nome">NEXUS<span class="ponto-laranja">.</span></span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#">Calendário</a></li>
+                <li><a href="#">Submeter Evento</a></li>
+                <li class="btn-login"><a href="login.html">Entrar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="event-container">
+        
+        <section class="event-header">
+            <h1>Codecon Summit 2026</h1>
+            <p class="event-date">14 e 15 de Agosto | Curitiba, PR</p>
+        </section>
+
+        <section class="image-container">
+            <img src="imagem/codesummit.png" alt="Code Summit" class="hero-image">
+        </section>
+
+        <section class="event-details">
+            <div class="detail-block">
+                <h3><i class="fa-solid fa-users"></i> Pessoas como você</h3>
+                <p>Conecte-se com desenvolvedores que pensam como você, troque experiência com quem já passou pelo que você está passando e faça contatos que vão além do evento.</p>
+            </div>
+            
+            <div class="detail-block">
+                <h3><i class="fa-solid fa-lightbulb"></i> Aprenda algo novo</h3>
+                <p>Explore arquitetura de software, IA na prática, carreira e muito mais no formato que funciona melhor pra você com quem realmente entende do assunto.</p>
+            </div>
+
+            <div class="detail-block">
+                <h3><i class="fa-solid fa-face-smile-wink"></i> Divirta-se</h3>
+                <p>A Codecon Summit não é só palestras. Tem gamificação, patos de pelúcia, experiências nos stands e muito mais para você descobrir.</p>
+            </div>
+        </section>
+
+        <section class="rooms-section">
+            <h2>Serão 4 salas simultâneas</h2>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <h4>Plenária</h4>
+                    <p>Os palestrantes mais aguardados, escolhidos pela própria comunidade.</p>
+                    <div class="host-info"><strong>Host:</strong> Giulia Bordignon</div>
+                </div>
+                <div class="room-card">
+                    <h4>Sandbox</h4>
+                    <p>Espaço para teoria na prática, talks experimentais e temas fora do óbvio.</p>
+                    <div class="host-info"><strong>Host:</strong> Ana Neri</div>
+                </div>
+                <div class="room-card">
+                    <h4>Dados & IA</h4>
+                    <p>Tudo o que está movendo o mercado de IA agora, sem hype e sem enrolação.</p>
+                    <div class="host-info"><strong>Host:</strong> Monica Craveiro</div>
+                </div>
+                <div class="room-card">
+                    <h4>Escovando Bits</h4>
+                    <p>Rodas de discussão e o famoso Roda Viva com os palestrantes.</p>
+                    <div class="host-info"><strong>Host:</strong> Jeniffer Bittencourt</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="event-action-bar">
+            <a href="https://eventos.codecon.dev/eventos/codecon-summit-26" target="_blank" class="btn-buy">Comprar Ingresso</a>
+            
+            <div class="action-icons">
+                <i class="fa-solid fa-share-nodes" title="Compartilhar" onclick="copyLink()"></i>
+                <i class="fa-regular fa-heart" id="heart" onclick="toggleHeart()"></i>
+            </div>
+        </section>
+
+        <section class="comments-section">
+            <button class="btn-comment">Comentar</button>
+            <div class="comment-item">
+                <div class="comment-avatar"><i class="fa-solid fa-user"></i></div>
+                <div class="comment-bubble">Lugar sensacional! O ExpoTrade em Curitiba é gigante.</div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Link copiado para compartilhar!");
+        }
+        function toggleHeart() {
+            const h = document.getElementById('heart');
+            h.classList.toggle('fa-solid');
+            h.classList.toggle('fa-regular');
+            h.style.color = h.classList.contains('fa-solid') ? '#f77f00' : '';
+        }
+    </script>
+</body>
+</html>
