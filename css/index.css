@@ -293,3 +293,13 @@ footer {
     background: transparent;
     padding: 0;
 }
+.btn-favoritar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #F77F00;
+    transition: 0.3s;
+    z-index: 999; /* Garante que ele fique por cima de tudo! */
+}
