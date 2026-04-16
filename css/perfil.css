@@ -1,0 +1,131 @@
+/* Layout Principal do Perfil */
+.perfil-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: rgb(226, 106, 27);
+}
+
+/* Header do Perfil (Foto e Nome) */
+.perfil-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: #eaeace;
+    padding: 40px;
+    border-radius: 12px;
+    border-left: 5px solid #f77f00;
+    margin-bottom: 30px;
+}
+
+/* Lógica da Foto de Perfil com Overlay */
+.avatar-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #f77f00;
+    cursor: pointer;
+}
+
+#foto-perfil {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.avatar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(223, 222, 222, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Escondido por padrão */
+    transition: 0.3s;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.avatar-wrapper:hover #foto-perfil {
+    transform: scale(1.1);
+}
+
+.avatar-wrapper:hover .avatar-overlay {
+    opacity: 1; /* Aparece ao passar o mouse */
+}
+
+/* Textos do Header */
+.perfil-title h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.badge-estudante {
+    background: #f77f00;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #eaeace;
+    display: inline-block;
+}
+
+/* Grid Inferior: Bio (Esquerda) e Favoritos (Direita) */
+.perfil-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Bio ocupa 1 parte, Favoritos 2 partes */
+    gap: 30px;
+}
+
+.bio-card, .favoritos-card {
+    background: #eaeace;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.bio-card h2, .favoritos-card h2 {
+    font-family: 'Sansation', sans-serif;
+    color: #f77f00;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eaeace;
+    padding-bottom: 10px;
+}
+
+.bio-content p {
+    margin-bottom: 15px;
+    color: #050505;
+    font-size: 1rem;
+}
+
+.bio-content strong {
+    color: #f77f00;
+}
+
+.btn-secondary {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid #f77f00;
+    color: #f77f00;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #f77f00;
+    color: white;
+}
+
+/* Responsivo para celular */
+@media (max-width: 768px) {
+    .perfil-grid {
+        grid-template-columns: 1fr; /* Fica um embaixo do outro no celular */
+    }
+}

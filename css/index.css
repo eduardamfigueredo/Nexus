@@ -165,7 +165,7 @@ nav ul li a:hover {
 
 .search-bar button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(247, 127, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(247, 127, 0, 1);
 }
 
 /* --- GRID DE EVENTOS --- */
@@ -261,4 +261,35 @@ footer {
     background: #f2ece4;
     color: var(--text-dim);
     border-top: 1px solid var(--border-color);
+}
+.user-avatar {
+    width: 35px;
+    height: 35px;
+    background-color: #f77f00; /* Laranja da Nexus */
+    color: white;
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    overflow: hidden; /* Corta qualquer ponta quadrada que tentar vazar */
+}
+
+.user-avatar svg {
+    width: 20px;
+    height: 20px;
+}
+
+.user-avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(247, 127, 0, 1);
+}
+.btn-sair-nav {
+    color: #F77F00;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    background: transparent;
+    padding: 0;
 }

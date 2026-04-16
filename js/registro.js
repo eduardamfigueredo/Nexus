@@ -1,26 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
+    // PARTE 0: ANIMAÇÃO DE TROCAR DE TELA
+    // ==========================================
+    const telaLogin = document.getElementById('tela-login');
+    const telaRegistro = document.getElementById('tela-registro');
+    const btnIrRegistro = document.getElementById('link-ir-registro');
+    const btnIrLogin = document.getElementById('link-ir-login');
+
+    btnIrRegistro.addEventListener('click', (e) => {
+        e.preventDefault(); // Evita que a página pule
+        telaLogin.style.display = 'none'; // Esconde Login
+        telaRegistro.style.display = 'block'; // Mostra Registro
+    });
+
+    btnIrLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        telaRegistro.style.display = 'none'; // Esconde Registro
+        telaLogin.style.display = 'block'; // Mostra Login
+    });
+
+    // ==========================================
     // PARTE 1: LÓGICA DE REGISTRO (CRIAR CONTA)
     // ==========================================
-    const formRegistro = document.querySelector('.register-section form');
+    const formRegistro = document.getElementById('form-registro');
 
     formRegistro.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Impede a página de piscar/recarregar
+        e.preventDefault(); // Impede a página de recarregar
         
-        // Pega o que você digitou usando os IDs novos
         const nome = document.getElementById('reg-nome').value;
         const email = document.getElementById('reg-email').value;
         const senha = document.getElementById('reg-senha').value;
 
-        // Aquela sua verificação de segurança
         if (senha.length < 8) {
             alert("Segurança: Sua senha deve ter pelo menos 8 caracteres.");
-            return; // Para o código aqui
+            return;
         }
 
         try {
-            // Envia para o Node.js
             const resposta = await fetch('http://127.0.0.1:3000/registrar', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -30,31 +47,32 @@ document.addEventListener('DOMContentLoaded', () => {
             const dados = await resposta.json();
             
             if (resposta.ok) {
-                alert("✨ Conta criada com sucesso! Agora faça o login ao lado.");
-                formRegistro.reset(); // Limpa os campos digitados
+                alert("✨ Conta criada com sucesso! Agora faça o login.");
+                formRegistro.reset(); // Limpa os campos
+                
+                // Animação extra: volta para a tela de login sozinho!
+                telaRegistro.style.display = 'none';
+                telaLogin.style.display = 'block';
             } else {
-                alert("❌ Erro: " + dados.erro); // Ex: "E-mail já cadastrado"
+                alert("❌ Erro: " + dados.erro);
             }
         } catch (error) {
             alert("❌ O servidor está desligado! Ligue com 'node server.js' no terminal.");
         }
     });
 
-
     // ==========================================
     // PARTE 2: LÓGICA DE LOGIN (ENTRAR NA CONTA)
     // ==========================================
-    const formLogin = document.querySelector('.login-section form');
+    const formLogin = document.getElementById('form-login');
 
     formLogin.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // Pega o que você digitou na parte de Login
         const email = document.getElementById('login-email').value;
         const senha = document.getElementById('login-senha').value;
 
         try {
-            // Envia para o Node.js verificar
             const resposta = await fetch('http://127.0.0.1:3000/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -65,9 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (resposta.ok) {
                 alert("Bem-vinda, " + dados.nome + "! 🚀");
-                window.location.href = "index.html"; // Manda você para a página inicial
+                localStorage.setItem('usuarioNexus', dados.nome); // Guarda a pulseira VIP
+                window.location.href = "index.html"; // Manda para a Home
             } else {
-                alert("❌ Erro: " + dados.erro); // Ex: "Senha incorreta"
+                alert("❌ Erro: " + dados.erro);
             }
         } catch (error) {
             alert("❌ O servidor está desligado! Ligue com 'node server.js' no terminal.");

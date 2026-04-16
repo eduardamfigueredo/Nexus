@@ -94,5 +94,37 @@
     });
 </script>
 <script src="js/registro.js"></script>
+<script>
+    const nomeUsuario = localStorage.getItem('usuarioNexus');
+    const liLogin = document.querySelector('.btn-login');
+
+    if (nomeUsuario) {
+        // 1. REMOVE A CLASSE DO BOTÃO ANTIGO PARA TIRAR O FUNDO LARANJA
+        liLogin.classList.remove('btn-login');
+
+        // 2. INJETA O BONEQUINHO COM FUNDO TRANSPARENTE FORÇADO
+        liLogin.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 15px;">
+                
+                <a href="perfil.html" style="text-decoration: none; display: flex; background: transparent; padding: 0;">
+                    <div class="user-avatar" title="${nomeUsuario}">
+                        <svg viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
+                        </svg>
+                    </div>
+                </a>
+                
+                <a href="#" id="btn-sair" style="color: #F77F00; font-size: 1rem; text-decoration: none; font-weight: bold; background: transparent; padding: 0;">Sair</a>
+            </div>
+        `;
+
+        // Lógica para deslogar
+        document.getElementById('btn-sair').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('usuarioNexus');
+            window.location.reload();
+        });
+    }
+</script>
 </body>
 </html>

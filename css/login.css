@@ -166,3 +166,20 @@ footer {
     border-top: 1px solid #333;
     margin-top: auto;
 }
+.trocar-tela {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #fff; /* ou a cor do texto que você está usando */
+}
+
+.trocar-tela a {
+    color: #f77f00; /* Laranja da Nexus */
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.trocar-tela a:hover {
+    text-decoration: underline;
+}
