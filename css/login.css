@@ -156,6 +156,28 @@ input:focus {
     background-color: #333;
     margin: 40px 0;
 }
+/* LÓGICA DE TROCA DE TELA (LOGIN / REGISTRO) */
+.trocar-tela {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: var(--text-dim); /* Usa o cinza padrão que você já definiu */
+    font-family: 'Inter', sans-serif;
+}
+
+.trocar-tela a {
+    color: var(--accent-orange); /* Usa o Laranja Nexus */
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 5px;
+}
+
+.trocar-tela a:hover {
+    text-decoration: underline;
+    filter: brightness(1.2);
+}
 
 /* 5. FOOTER */
 footer {
