@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/sansation" rel="stylesheet">
+    <script src="js/script.js"></script> 
 </head>
 <body>
 
@@ -73,6 +74,24 @@
     <footer>
         <p>&copy; 2026 Nexus Tech Brasil - Conectando mentes brilhantes.</p>
     </footer>
+<script>
+    const searchInput = document.querySelector('.search-bar input');
+    const cards = document.querySelectorAll('.event-card');
 
+    searchInput.addEventListener('input', () => {
+        const termo = searchInput.value.toLowerCase();
+        
+        cards.forEach(card => {
+            const titulo = card.querySelector('h3').innerText.toLowerCase();
+            const desc = card.querySelector('.desc').innerText.toLowerCase();
+            
+            if (titulo.includes(termo) || desc.includes(termo)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+</script>
 </body>
 </html>
