@@ -37,23 +37,35 @@
     <p class="trocar-tela">Primeira vez aqui? <a href="#" id="link-ir-registro">Registre-se</a></p>
 </section>
 
-<section class="register-section" id="tela-registro" style="display: none;">
-    <h2 class="titulo-sansation">Registro</h2>
-    <form id="form-registro">
-        <input type="text" id="reg-nome" placeholder="Seu Nome" required>
-        <input type="email" id="reg-email" placeholder="Seu E-mail" required>
-        <input type="password" id="reg-senha" placeholder="Sua Senha" required>
-        <button type="submit" class="btn-primary">Criar Conta</button>
-    </form>
-    <p class="trocar-tela">Já tem uma conta? <a href="#" id="link-ir-login">Entre aqui</a></p>
-</section>
+            <div class="divider"></div>
+
+            <section class="login-section">
+                <h2 class="titulo-sansation">Login</h2>
+                <form>
+                    <input type="email" placeholder="Seu E-mail" required>
+                    <input type="password" placeholder="Sua Senha" required>
+                    <button type="submit" class="btn-primary">Entrar</button>
+                </form>
+            </section>
         </div>
     </main>
 
     <footer>
         <p>&copy; 2026 Nexus Tech Brasil - Conectando mentes brilhantes.</p>
     </footer>
-
-    <script src="js/registro.js"></script>
+<script>
+    const formRegistro = document.querySelector('.register-section form');
+    
+    formRegistro.addEventListener('submit', (e) => {
+  
+        const senha = formRegistro.querySelector('input[type="password"]').value;
+        
+        if (senha.length < 8) {
+            e.preventDefault(); // 
+            alert("Segurança: Sua senha deve ter pelo menos 8 caracteres.");
+        }
+        
+    });
+</script>
 </body>
 </html>

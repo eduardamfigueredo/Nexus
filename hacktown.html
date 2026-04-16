@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagem/favicon.ico" type="image/x-icon">
+    <title>HackTown 2026 | Nexus</title>
+    
+    <link href="https://fonts.cdnfonts.com/css/sansation" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/hacktown.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <img src="imagem/pinguim.png" class="logo-pinguim" alt="Logo Pinguim">
+            <span class="texto-nome">NEXUS<span class="ponto-laranja">.</span></span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#">Calendário</a></li>
+                <li><a href="#">Submeter Evento</a></li>
+                <li class="btn-login"><a href="login.html">Entrar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="event-container">
+        
+        <section class="event-header">
+            <h1>HackTown 2026</h1>
+            <p class="event-date">3 a 7 de setembro | Santa Rita do Sapucaí, MG</p>
+        </section>
+
+        <section class="carousel-container">
+            <div class="carousel-track">
+                <img src="imagem/mapaSantaRita.png" alt="Mapa Santa Rita do Sapucaí">
+                <img src="imagem/hacktownMG 1.png" alt="HackTown Imagem 1">
+                <img src="imagem/hacktownMG 2.png" alt="HackTown Imagem 2">
+                <img src="imagem/hacktownMG 3.png" alt="HackTown Imagem 3">
+                <img src="imagem/hacktownMG 4.png" alt="HackTown Imagem 4">
+                <img src="imagem/hacktownMG 5.png" alt="HackTown Imagem 5">
+            </div>
+            <p class="carousel-hint"><i class="fa-solid fa-arrows-left-right"></i> Arraste para o lado</p>
+        </section>
+
+        <section class="event-details">
+            <div class="detail-block">
+                <h3><i class="fa-solid fa-city"></i> A Cidade é o Palco</h3>
+                <p>Imagine uma cidadezinha tranquila no sul de Minas Gerais transformada no principal polo de inovação da América Latina. O evento transforma escolas, universidades, bares e praças em plataformas de pura imersão.</p>
+            </div>
+            
+            <div class="detail-block">
+                <h3><i class="fa-solid fa-network-wired"></i> Conexões Inesperadas</h3>
+                <p>Milhares de executivos, profissionais e empreendedores compartilham ideias inovadoras. É um festival em que você sabe como pode chegar, mas nunca como vai sair.</p>
+            </div>
+
+            <div class="detail-block">
+                <h3><i class="fa-solid fa-lightbulb"></i> Explosão de Criatividade</h3>
+                <p>Um universo de possibilidades onde o convencional encontra o novo. Descubra tendências, faça networking de alto nível e leve seus negócios e projetos a um outro patamar.</p>
+            </div>
+        </section>
+
+        <section class="rooms-section">
+            <h2>O que você vai encontrar?</h2>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <h4>+ 1000 Atividades</h4>
+                    <p>O maior line-up da América Latina. Imagine andar por uma cidade de 40 mil habitantes com mais de 50 palestras acontecendo ao mesmo tempo.</p>
+                    <div class="host-info"><i class="fa-solid fa-microphone-lines"></i> Conteúdo Ilimitado</div>
+                </div>
+                <div class="room-card">
+                    <h4>110 Venues e Ativações</h4>
+                    <p>Ativações das maiores marcas do mundo espalhadas por toda a cidade, ocupando desde casarões antigos até praças e espaços criados do zero.</p>
+                    <div class="host-info"><i class="fa-solid fa-map-location-dot"></i> Experiência Única</div>
+                </div>
+                <div class="room-card">
+                    <h4>+ 500 Empresas</h4>
+                    <p>Entre grandes corporações, startups e investidores, o HackTown teve a projeção de gerar mais de R$ 250 Milhões em oportunidades.</p>
+                    <div class="host-info"><i class="fa-solid fa-chart-line"></i> Foco em Negócios</div>
+                </div>
+                <div class="room-card">
+                    <h4>+ 100 Showcases</h4>
+                    <p>Música, arte e cultura não podem faltar! Showcases espalhados por bares, restaurantes e ruas públicas para fechar o dia inspirando a criatividade.</p>
+                    <div class="host-info"><i class="fa-solid fa-guitar"></i> Cultura & Entretenimento</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="event-action-bar">
+            <a href="https://hacktown.com.br/#ingressos" target="_blank" class="btn-buy">Comprar Ingresso</a>
+            
+            <div class="action-icons">
+                <i class="fa-solid fa-share-nodes" title="Compartilhar" onclick="copyLink()"></i>
+                <i class="fa-regular fa-heart" id="heart" onclick="toggleHeart()"></i>
+            </div>
+        </section>
+
+        <section class="comments-section">
+            <button class="btn-comment">Comentar</button>
+            <div class="comment-item">
+                <div class="comment-avatar"><i class="fa-solid fa-user"></i></div>
+                <div class="comment-bubble">A experiência de andar por Santa Rita do Sapucaí e esbarrar com tecnologia em cada esquina é absurda! Contando os dias.</div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Link copiado para compartilhar!");
+        }
+        function toggleHeart() {
+            const h = document.getElementById('heart');
+            h.classList.toggle('fa-solid');
+            h.classList.toggle('fa-regular');
+            h.style.color = h.classList.contains('fa-solid') ? '#f77f00' : '';
+        }
+    </script>
+</body>
+</html>
