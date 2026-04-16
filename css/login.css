@@ -166,3 +166,18 @@ footer {
     border-top: 1px solid #333;
     margin-top: auto;
 }
+.lembrar-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-top: -5px;
+    margin-bottom: 5px;
+}
+
+.lembrar-area input[type="checkbox"] {
+    width: auto; /* Remove a largura de 100% que os outros inputs têm */
+    accent-color: var(--accent-orange); /* Deixa o check laranja no clique */
+    cursor: pointer;
+}

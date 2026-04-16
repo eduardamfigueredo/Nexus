@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagem/favicon.ico" type="image/x-icon">
+    <title>Digital Tech Show 2026 | Nexus</title>
+    
+    <link href="https://fonts.cdnfonts.com/css/sansation" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/digitaltech.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <img src="imagem/pinguim.png" alt="logo">
+            <span class="texto-nome">NEXUS<span class="ponto-laranja">.</span></span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#">Calendário</a></li>
+                <li><a href="#">Submeter Evento</a></li>
+                <li class="btn-login"><a href="login.html">Entrar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="event-container">
+        
+        <section class="event-header">
+            <h1>Digital Tech Show 2026</h1>
+            <p class="event-date">05 e 06 de Maio | São Paulo, SP</p>
+        </section>
+
+        <section class="image-container">
+            <img src="imagem/digitaltech.png" alt="Digitaltech 2026">
+        </section>
+
+        <section class="event-details">
+            <div class="detail-block">
+                <h3><i class="fa-solid fa-rocket"></i> A Transformação Digital</h3>
+                <p>O maior encontro anual de profissionais de tecnologia, inovação e negócios do Brasil. Serão dois dias de imersão completa com mais de 120 marcas líderes acelerando resultados em todos os setores.</p>
+            </div>
+            
+            <div class="detail-block">
+                <h3><i class="fa-solid fa-microchip"></i> Tecnologias em Foco</h3>
+                <p>Explore as mais recentes novidades em Inteligência Artificial, RPA, Low-Code, Cibersegurança, Big Data e Cloud, com startups e scale-ups apresentando soluções disruptivas.</p>
+            </div>
+
+            <div class="detail-block">
+                <h3><i class="fa-solid fa-handshake"></i> Experiências Exclusivas</h3>
+                <p>Um ambiente de networking qualificado com CEOs, CIOs e desenvolvedores. Aproveite o coffee free o dia todo, coquetel com open chopp e sorteios (incluindo uma bike elétrica!).</p>
+            </div>
+        </section>
+
+        <section class="rooms-section">
+            <h2>Por que visitar o evento?</h2>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <h4>120+ Expositores</h4>
+                    <p>Acesso direto a fornecedores nacionais e globais moldando o futuro das empresas.</p>
+                    <div class="host-info"><i class="fa-solid fa-check"></i> Feira de Negócios</div>
+                </div>
+                <div class="room-card">
+                    <h4>Público Qualificado</h4>
+                    <p>Mais de 5 mil visitantes, unindo desde desenvolvedores até líderes e diretores de TI.</p>
+                    <div class="host-info"><i class="fa-solid fa-check"></i> Networking de Alto Nível</div>
+                </div>
+                <div class="room-card">
+                    <h4>Frei Caneca, SP</h4>
+                    <p>Localizado no coração de São Paulo, no 5º andar do Centro de Convenções Frei Caneca.</p>
+                    <div class="host-info"><i class="fa-solid fa-check"></i> Infraestrutura Premium</div>
+                </div>
+                <div class="room-card">
+                    <h4>Ingresso Gratuito</h4>
+                    <p>Acesso gratuito por tempo limitado aos dois dias de evento e todas as experiências.</p>
+                    <div class="host-info"><i class="fa-solid fa-check"></i> Vagas Limitadas</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="event-action-bar">
+            <a href="SEU_LINK_AQUI" target="_blank" class="btn-buy">Garantir Ingresso</a>
+            
+            <div class="action-icons">
+                <i class="fa-solid fa-share-nodes" title="Compartilhar" onclick="copyLink()"></i>
+                <i class="fa-regular fa-heart" id="heart" onclick="toggleHeart()"></i>
+            </div>
+        </section>
+
+        <section class="comments-section">
+            <button class="btn-comment">Comentar</button>
+            <div class="comment-item">
+                <div class="comment-avatar"><i class="fa-solid fa-user"></i></div>
+                <div class="comment-bubble">Gostei bastante da grade focada em IA neste ano! Estarei lá.</div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Link copiado para compartilhar!");
+        }
+        function toggleHeart() {
+            const h = document.getElementById('heart');
+            h.classList.toggle('fa-solid');
+            h.classList.toggle('fa-regular');
+            h.style.color = h.classList.contains('fa-solid') ? '#f77f00' : '';
+        }
+    </script>
+</body>
+</html>
