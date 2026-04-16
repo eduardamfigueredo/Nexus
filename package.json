@@ -2,8 +2,9 @@
   "name": "nexus",
   "version": "1.0.0",
   "description": "Site para encontrar eventos de tecnologia no brasil, para estudantes de tecnologia.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,7 +12,7 @@
     "url": "git+https://github.com/eduardamfigueredo/Nexus.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Maria Eduarda",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
