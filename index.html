@@ -173,5 +173,22 @@
         });
     });
 </script>
+<div id="cookie-banner" style="..."> ... </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const banner = document.getElementById('cookie-banner');
+        const btnAceitar = document.getElementById('btn-aceitar-cookie');
+
+        if (!localStorage.getItem('cookiesAceitos')) {
+            banner.style.display = 'block';
+        }
+
+        btnAceitar.addEventListener('click', () => {
+            localStorage.setItem('cookiesAceitos', 'true');
+            banner.style.display = 'none';
+        });
+    });
+</script>
 </body>
 </html>
