@@ -124,54 +124,6 @@
         });
     }
 
-    // 3. LÓGICA DO CORAÇÃO (FAVORITOS)
-    const botoesFavoritar = document.querySelectorAll('.btn-favoritar');
-    let favoritos = JSON.parse(localStorage.getItem('eventosFavoritos')) || [];
-
-    // Pinta os corações que já estão salvos ao carregar a página
-    botoesFavoritar.forEach(botao => {
-        const card = botao.closest('.event-card');
-        const titulo = card.querySelector('.evento-titulo').innerText;
-        
-        if (favoritos.some(evento => evento.titulo === titulo)) {
-            botao.classList.remove('fa-regular');
-            botao.classList.add('fa-solid');
-            botao.style.color = '#F77F00'; 
-        }
-    });
-
-    // Ação de clicar no coração
-    botoesFavoritar.forEach(botao => {
-        botao.addEventListener('click', function(e) {
-            e.stopPropagation(); // Evita bugs de clique
-            
-            const card = this.closest('.event-card');
-            const evento = {
-                titulo: card.querySelector('.evento-titulo').innerText,
-                data: card.querySelector('.evento-data').innerText,
-                desc: card.querySelector('.evento-desc').innerText
-            };
-
-            // Atualiza a lista da mochila
-            let favoritosAtualizados = JSON.parse(localStorage.getItem('eventosFavoritos')) || [];
-            const index = favoritosAtualizados.findIndex(f => f.titulo === evento.titulo);
-
-            if (index === -1) {
-                // Se não tem, salva
-                favoritosAtualizados.push(evento);
-                this.classList.replace('fa-regular', 'fa-solid');
-                this.style.color = '#F77F00';
-                alert("Evento salvo no seu perfil! ✨");
-            } else {
-                // Se já tem, remove
-                favoritosAtualizados.splice(index, 1);
-                this.classList.replace('fa-solid', 'fa-regular');
-                this.style.color = 'white'; // ou a cor normal do seu icone
-            }
-
-            localStorage.setItem('eventosFavoritos', JSON.stringify(favoritosAtualizados));
-        });
-    });
 </script>
 <div id="cookie-banner" style="..."> ... </div>
 
