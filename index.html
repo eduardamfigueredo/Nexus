@@ -10,8 +10,24 @@
     <link href="https://fonts.cdnfonts.com/css/sansation" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="js/script.js"></script> 
+    <style>
+        /* Aplicando as cores de fundo e detalhes via CSS interno para garantir */
+        body {
+            background-color: #f2ece4 !important;
+        }
+        .hero h1 span, .ponto-laranja {
+            color: #F77F00 !important;
+        }
+        .search-bar button, .btn-card {
+            background-color: #F77F00 !important;
+            border: none;
+        }
+        .event-badge {
+            background-color: #F77F00 !important;
+        }
+    </style>
 </head>
-<body>
+<body style="background-color: #f2ece4;">
 
     <header class="navbar">
         <div class="logo">
@@ -29,11 +45,11 @@
     </header>
 
     <section class="hero">
-        <h1>Conecte-se ao Futuro da <span>Tecnologia Acadêmica</span></h1>
+        <h1>Conecte-se ao Futuro da <span style="color: #F77F00;">Tecnologia Acadêmica</span></h1>
         <p>A maior plataforma de divulgação de congressos, simpósios e hackathons do Brasil.</p>
         <div class="search-bar">
             <input type="text" placeholder="Busque por estado, tema ou universidade...">
-            <button>Explorar</button>
+            <button style="background-color: #F77F00;">Explorar</button>
         </div>
     </section>
 
@@ -42,35 +58,32 @@
         <div class="event-grid">
             
             <div class="event-card">
-                <div class="event-badge">Gratuito</div>
-                <i class="fa-regular fa-heart btn-favoritar"></i>
+                <div class="event-badge" style="background-color: #F77F00;">Gratuito</div>
                 <div class="event-content">
                     <h3 class="evento-titulo">DIGITAL TECH SHOW 2026</h3>
                     <p class="date evento-data">05 e 06 de Maio| São Paulo, SP</p>
                     <p class="desc evento-desc">O maior encontro ANUAL DE PROFISSIONAIS de tecnologia, inovação e negócios do Brasil.</p>
-                    <a href="digitaltech.html" class="btn-card">Saber mais</a>
+                    <a href="digitaltech.html" class="btn-card" style="background-color: #F77F00;">Saber mais</a>
                 </div>
             </div>
 
             <div class="event-card">
-                <div class="event-badge">Inscrições Abertas</div>
-                <i class="fa-regular fa-heart btn-favoritar"></i>
+                <div class="event-badge" style="background-color: #F77F00;">Inscrições Abertas</div>
                 <div class="event-content">
                     <h3 class="evento-titulo">Codecon Summit 2026</h3>
                     <p class="date evento-data">14 e 15 de Agosto | Curitiba, PR</p>
                     <p class="desc evento-desc">A Codecon Summit é um festival que reúne inovação, tecnologia, código e diversão em Curitiba/PR.</p>
-                    <a href="codesummit.html" class="btn-card">Saber mais</a>
+                    <a href="codesummit.html" class="btn-card" style="background-color: #F77F00;">Saber mais</a>
                 </div>
             </div>
 
             <div class="event-card">
-                <div class="event-badge">Festival</div>
-                <i class="fa-regular fa-heart btn-favoritar"></i>
+                <div class="event-badge" style="background-color: #F77F00;">Festival</div>
                 <div class="event-content">
                     <h3 class="evento-titulo">HackTown 2026</h3>
                     <p class="date evento-data">3 a 7 de setembro | Santa Rita do Sapucaí, MG</p>
                     <p class="desc evento-desc">O HackTown é um festival conhecido por transformar Santa Rita do Sapucaí/MG em polo de inovação e criatividade.</p>
-                    <a href="hacktown.html" class="btn-card">Saber mais</a>
+                    <a href="hacktown.html" class="btn-card" style="background-color: #F77F00;">Saber mais</a>
                 </div>
             </div>
 
@@ -81,54 +94,55 @@
         <p>&copy; 2026 Nexus Tech Brasil - Conectando mentes brilhantes.</p>
     </footer>
 
-<script>
-    // 1. LÓGICA DA BARRA DE BUSCA
-    const searchInput = document.querySelector('.search-bar input');
-    const cards = document.querySelectorAll('.event-card');
+    <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #1a1a1a; color: white; padding: 20px; text-align: center; border-top: 3px solid #F77F00; z-index: 9999;">
+        <p style="margin-bottom: 15px;">Nós usamos cookies para melhorar sua experiência na Nexus. Ao continuar navegando, você concorda com nossa política de privacidade.</p>
+        <button id="btn-aceitar-cookie" style="background: #F77F00; color: white; border: none; padding: 10px 25px; border-radius: 5px; cursor: pointer; font-weight: bold;">Aceitar Cookies</button>
+    </div>
 
-    searchInput.addEventListener('input', () => {
-        const termo = searchInput.value.toLowerCase();
-        cards.forEach(card => {
-            const titulo = card.querySelector('h3').innerText.toLowerCase();
-            const desc = card.querySelector('.desc').innerText.toLowerCase();
-            if (titulo.includes(termo) || desc.includes(termo)) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
+    <script>
+        // 1. LÓGICA DA BARRA DE BUSCA
+        const searchInput = document.querySelector('.search-bar input');
+        const cards = document.querySelectorAll('.event-card');
+
+        searchInput.addEventListener('input', () => {
+            const termo = searchInput.value.toLowerCase();
+            cards.forEach(card => {
+                const titulo = card.querySelector('h3').innerText.toLowerCase();
+                const desc = card.querySelector('.desc').innerText.toLowerCase();
+                if (titulo.includes(termo) || desc.includes(termo)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
         });
-    });
 
-    // 2. LÓGICA DO BONEQUINHO NO CABEÇALHO
-    const nomeUsuario = localStorage.getItem('usuarioNexus');
-    const liLogin = document.querySelector('.btn-login');
+        // 2. LÓGICA DO BONEQUINHO NO CABEÇALHO
+        const nomeUsuario = localStorage.getItem('usuarioNexus');
+        const liLogin = document.querySelector('.btn-login');
 
-    if (nomeUsuario) {
-        liLogin.classList.remove('btn-login');
-        liLogin.innerHTML = `
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <a href="perfil.html" style="text-decoration: none; display: flex; background: transparent; padding: 0;">
-                    <div class="user-avatar" title="${nomeUsuario}">
-                        <svg viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
-                        </svg>
-                    </div>
-                </a>
-                <a href="#" id="btn-sair" style="color: #F77F00; font-size: 1rem; text-decoration: none; font-weight: bold; background: transparent; padding: 0;">Sair</a>
-            </div>
-        `;
-        document.getElementById('btn-sair').addEventListener('click', (e) => {
-            e.preventDefault();
-            localStorage.removeItem('usuarioNexus');
-            window.location.reload();
-        });
-    }
+        if (nomeUsuario) {
+            liLogin.classList.remove('btn-login');
+            liLogin.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <a href="perfil.html" style="text-decoration: none; display: flex; background: transparent; padding: 0;">
+                        <div class="user-avatar" title="${nomeUsuario}">
+                            <svg viewBox="0 0 24 24" style="width:30px; color:white;">
+                                <path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
+                            </svg>
+                        </div>
+                    </a>
+                    <a href="#" id="btn-sair" style="color: #F77F00; font-size: 1rem; text-decoration: none; font-weight: bold; background: transparent; padding: 0;">Sair</a>
+                </div>
+            `;
+            document.getElementById('btn-sair').addEventListener('click', (e) => {
+                e.preventDefault();
+                localStorage.removeItem('usuarioNexus');
+                window.location.reload();
+            });
+        }
 
-</script>
-<div id="cookie-banner" style="..."> ... </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
+        // 3. LÓGICA DOS COOKIES
         const banner = document.getElementById('cookie-banner');
         const btnAceitar = document.getElementById('btn-aceitar-cookie');
 
@@ -140,7 +154,6 @@
             localStorage.setItem('cookiesAceitos', 'true');
             banner.style.display = 'none';
         });
-    });
-</script>
+    </script>
 </body>
 </html>
